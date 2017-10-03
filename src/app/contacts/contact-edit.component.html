@@ -4,10 +4,10 @@
 </header>
 <br />
 
-<md-expansion-panel #asd *ngFor="let address of userAddresses;let i = index" [attr.data-id]="address.id">
+<md-expansion-panel *ngFor="let address of userAddresses;let i = index">
   <md-expansion-panel-header>
     <md-panel-title>
-      Address info
+      Address Info
     </md-panel-title>
     <md-panel-description>
       #{{ i + 1 }}
@@ -15,7 +15,7 @@
   </md-expansion-panel-header>
 
   <md-form-field>
-    <input mdInput id="asd +{{i}}" placeholder="Street 1" value={{address?.street1}}>
+    <input mdInput placeholder="Street 1" value={{address?.street1}}>
   </md-form-field>
 
   <md-form-field>
@@ -32,8 +32,7 @@
     </md-option>
   </md-select>
   <button md-raised-button md-button color="warn" (click)="deleteAddress(address.id)">DEL</button>
-  <button md-raised-button md-button (click)="test()">TEST</button> 
-  
+
 </md-expansion-panel>
 
 <form [formGroup]="addressForm" (ngSubmit)="submit(addressForm)" novalidate>
@@ -42,12 +41,12 @@
       <input mdInput placeholder="Street 1" formControlName="street1">
       <div class="alert alert-danger" [hidden]="addressForm.controls.street1.untouched || addressForm.controls.street1.valid">street1 is required</div>
     </md-form-field>
-  
+
     <md-form-field>
       <input mdInput placeholder="Street 2" formControlName="street2">
       <div class="alert alert-danger" [hidden]="addressForm.controls.street2.untouched || addressForm.controls.street2.valid">street2 is required</div>
     </md-form-field>
-  
+
     <md-form-field>
       <input mdInput placeholder="Town" formControlName="town">
       <div class="alert alert-danger" [hidden]="addressForm.controls.town.untouched || addressForm.controls.town.valid">town is required</div>
@@ -58,7 +57,7 @@
         {{ country.name }}
       </md-option>
     </md-select>
-    
+
   </div>
   <br>
   <button md-raised-button md-button type="submit" [disabled]="!addressForm.valid" color="primary">SAVE</button>

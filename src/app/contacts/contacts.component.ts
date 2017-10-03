@@ -47,10 +47,10 @@ export class ContactsComponent implements OnInit {
             .subscribe((res) => {
                 if (res) {
                     this.getContacts();
+                    userInput.value = '';
                 } else {
-                    console.log('something went wrong');
+                    alert('something went wrong');
                 }
             });
-        userInput.value = '';
     }
 }

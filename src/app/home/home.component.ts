@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
     // tslint:disable-next-line:component-selector
     selector: 'home',
     templateUrl: './home.component.html',
-    styles: [`.example-card { margin: 15px 0; }`]
+    styles: [`md-card { margin: 15px 0; }`]
 })
 export class HomeComponent implements OnInit {
     title: string;

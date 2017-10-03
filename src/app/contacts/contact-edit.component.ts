@@ -120,16 +120,4 @@ export class ContactEditComponent implements OnInit {
                 }
             });
     }
-
-    test() {
-        console.log();
-    }
-
-    onKey(ev) {
-        console.log(ev);
-    }
-
-    submit2(ev) {
-        console.log(ev);
-    }
  }
