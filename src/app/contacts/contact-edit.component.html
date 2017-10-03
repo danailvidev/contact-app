@@ -1,0 +1,68 @@
+<header>
+  <img *ngIf="contact.avatar" src="{{contact.avatar}}" alt="avatar">
+  <h3>{{contact.first_name}} {{contact.last_name}}</h3>
+</header>
+<br />
+
+<md-expansion-panel #asd *ngFor="let address of userAddresses;let i = index" [attr.data-id]="address.id">
+  <md-expansion-panel-header>
+    <md-panel-title>
+      Address info
+    </md-panel-title>
+    <md-panel-description>
+      #{{ i + 1 }}
+    </md-panel-description>
+  </md-expansion-panel-header>
+
+  <md-form-field>
+    <input mdInput id="asd +{{i}}" placeholder="Street 1" value={{address?.street1}}>
+  </md-form-field>
+
+  <md-form-field>
+    <input mdInput placeholder="Street 2" value={{address?.street2}}>
+  </md-form-field>
+
+  <md-form-field>
+    <input mdInput placeholder="Town" value={{address?.town}}>
+  </md-form-field>
+
+  <md-select placeholder="Country" [(ngModel)]="address.country" name="country">
+    <md-option *ngFor="let country of countries" [value]="country.iso2">
+      {{ country.name }}
+    </md-option>
+  </md-select>
+  <button md-raised-button md-button color="warn" (click)="deleteAddress(address.id)">DEL</button>
+  <button md-raised-button md-button (click)="test()">TEST</button> 
+  
+</md-expansion-panel>
+
+<form [formGroup]="addressForm" (ngSubmit)="submit(addressForm)" novalidate>
+  <div class="form-group">
+    <md-form-field>
+      <input mdInput placeholder="Street 1" formControlName="street1">
+      <div class="alert alert-danger" [hidden]="addressForm.controls.street1.untouched || addressForm.controls.street1.valid">street1 is required</div>
+    </md-form-field>
+  
+    <md-form-field>
+      <input mdInput placeholder="Street 2" formControlName="street2">
+      <div class="alert alert-danger" [hidden]="addressForm.controls.street2.untouched || addressForm.controls.street2.valid">street2 is required</div>
+    </md-form-field>
+  
+    <md-form-field>
+      <input mdInput placeholder="Town" formControlName="town">
+      <div class="alert alert-danger" [hidden]="addressForm.controls.town.untouched || addressForm.controls.town.valid">town is required</div>
+    </md-form-field>
+
+    <md-select placeholder="Country" name="country" formControlName="country">
+      <md-option *ngFor="let country of countries" [value]="country.iso2">
+        {{ country.name }}
+      </md-option>
+    </md-select>
+    
+  </div>
+  <br>
+  <button md-raised-button md-button type="submit" [disabled]="!addressForm.valid" color="primary">SAVE</button>
+
+</form>
+<br><br>
+<button md-raised-button md-button (click)="cancel()">BACK</button>

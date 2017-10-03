@@ -1,0 +1,18 @@
+<h1>{{title}}</h1>
+<h3>You have {{totalRecords}} contacts</h3>
+
+<md-divider></md-divider>
+
+<contacts-grid [contacts]="contacts"></contacts-grid>
+
+<md-divider></md-divider>
+
+<md-input-container>
+  <input type="text" mdInput placeholder="Contact Name" #name type="text" value="" maxLength="20" minlength="2" />
+  <md-hint align="end" aria-live="polite">
+    {{name.value.length}} / 20
+  </md-hint>
+</md-input-container>
+<button md-mini-fab [disabled]="name.value.length < 2" (click)="insertContact(name)">
+  <md-icon>add</md-icon>
+</button>

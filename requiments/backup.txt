@@ -1,0 +1,97 @@
+import { Injectable } from '@angular/core';
+import { Http, Headers, Response, RequestOptions } from '@angular/http';
+
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/throw';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+
+import { IContactDTO, IPagedResults, IAddressDTO, ICountryDTO } from '../shared/interfaces';
+
+@Injectable()
+export class DataService {
+    baseContactsUrl = 'http://localhost:3000/contacts';
+    baseAddressesUrl = 'http://localhost:3000/addresses';
+    baseCountriesUrl = 'http://localhost:3000/countries';
+
+    constructor(private http: Http) {
+
+    }
+
+    getContacts(): Observable<IPagedResults<IContactDTO[]>> {
+        return this.http.get(this.baseContactsUrl)
+            .map((res: Response) => {
+                const contacts = res.json();
+                const totalRecords = contacts.length;
+                return {
+                    results: contacts,
+                    totalRecords: totalRecords
+                };
+            })
+            .catch(this.handleError);
+
+    }
+
+    getContact(id: Number): Observable<IContactDTO> {
+        return this.http.get(this.baseContactsUrl + '/' + id)
+            .map((res: Response) => res.json())
+            .catch(this.handleError);
+    }
+
+    insertContact(contact: IContactDTO): Observable<boolean> {
+        const body = JSON.stringify(contact);
+        const headers = new Headers({ 'Content-Type': 'application/json' });
+        const options = new RequestOptions({ headers: headers });
+        return this.http.post(this.baseContactsUrl, body, options)
+            .map(res => {
+                if (res.ok) {
+                    return true;
+                }
+                return false;
+            })
+            .catch(this.handleError);
+    }
+
+    deleteContact(id: Number): Observable<boolean> {
+        return this.http.delete(this.baseContactsUrl + '/' + id)
+            .map((res: Response) => res.json().status)
+            .catch(this.handleError);
+    }
+
+    getAddresses(): Observable<IAddressDTO[]> {
+        return this.http.get(this.baseAddressesUrl)
+            .map((res: Response) => res.json())
+            .catch(this.handleError);
+    }
+
+    deleteAddress(id): Observable<boolean> {
+        return this.http.delete(this.baseAddressesUrl + '/' + id)
+            .map(res => {
+                if (res.ok) {
+                    return true;
+                }
+                return false;
+            })
+            .catch(this.handleError);
+    }
+
+    getCountries(): Observable<ICountryDTO[]> {
+        return this.http.get(this.baseCountriesUrl)
+            .map((res: Response) => res.json())
+            .catch(this.handleError);
+    }
+
+    private handleError(error: any) {
+        console.error('server error:', error);
+        if (error instanceof Response) {
+            let errMessage = '';
+            try {
+                errMessage = error.json().error;
+            } catch (err) {
+                errMessage = error.statusText;
+            }
+            return Observable.throw(errMessage);
+        }
+        return Observable.throw(error || 'json server error');
+    }
+}

@@ -1,0 +1,145 @@
+{
+  "contacts": [
+    {
+      "id": 1,
+      "first_name": "Aloy",
+      "last_name": "Sobeck",
+      "avatar": "https://pbs.twimg.com/profile_images/862284388012367872/sBzixGdN.jpg"
+    },
+    {
+      "id": 2,
+      "first_name": "Edward",
+      "last_name": "Kenway",
+      "avatar": "https://pbs.twimg.com/profile_images/490623209822105600/1JHdK9lS.jpeg"
+    },
+    {
+      "id": 3,
+      "first_name": "Nathan",
+      "last_name": "Drake",
+      "avatar": "https://pbs.twimg.com/profile_images/630503477748195328/GWKlmRm-.jpg"
+    },
+    {
+      "id": 4,
+      "first_name": "John",
+      "last_name": "Doe",
+      "avatar": "https://handmade.network/static/light/empty-avatar.svg"
+    },
+    {
+      "first_name": "asd",
+      "last_name": "dasdad",
+      "avatar": "",
+      "id": 5
+    },
+    {
+      "first_name": "sdfsdfsd",
+      "avatar": "",
+      "id": 6
+    },
+    {
+      "first_name": "sdfs",
+      "last_name": "",
+      "avatar": "",
+      "id": 7
+    },
+    {
+      "first_name": "asd",
+      "last_name": "das",
+      "avatar": "",
+      "id": 8
+    },
+    {
+      "first_name": "11",
+      "last_name": "22",
+      "avatar": "",
+      "id": 9
+    }
+  ],
+  "addresses": [
+    {
+      "street1": "Queen Anne's",
+      "street2": "Bloomsbury",
+      "town": "London",
+      "country": "GB",
+      "contactId": "2",
+      "id": 1
+    },
+    {
+      "street1": "test",
+      "street2": "test",
+      "town": "London",
+      "country": "DE",
+      "contactId": "2",
+      "id": 2
+    },
+    {
+      "street1": "11",
+      "street2": "11",
+      "town": "11",
+      "country": "NL",
+      "contactId": "2",
+      "id": 3
+    },
+    {
+      "street1": "дфс",
+      "street2": "сдф",
+      "town": "дсф",
+      "country": "NL",
+      "contactId": "6",
+      "id": 4
+    }
+  ],
+  "countries": [
+    {
+      "iso2": "DE",
+      "name": "Germany"
+    },
+    {
+      "iso2": "AT",
+      "name": "Austria"
+    },
+    {
+      "iso2": "CH",
+      "name": "Switzerland"
+    },
+    {
+      "iso2": "NL",
+      "name": "Netherlands"
+    },
+    {
+      "iso2": "GB",
+      "name": "United Kingdom"
+    },
+    {
+      "iso2": "BE",
+      "name": "Belgium"
+    },
+    {
+      "iso2": "CZ",
+      "name": "Czech Republic"
+    },
+    {
+      "iso2": "HU",
+      "name": "Hungary"
+    },
+    {
+      "iso2": "SI",
+      "name": "Slovenia"
+    },
+    {
+      "iso2": "FR",
+      "name": "France"
+    },
+    {
+      "iso2": "IT",
+      "name": "Italy"
+    },
+    {
+      "iso2": "PL",
+      "name": "Poland"
+    },
+    {
+      "iso2": "ES",
+      "name": "Spain"
+    }
+  ]
+}

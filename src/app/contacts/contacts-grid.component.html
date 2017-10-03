@@ -1,0 +1,6 @@
+<md-nav-list>
+  <md-list-item *ngFor="let contact of contacts">
+    <md-icon class="avatar" *ngIf="contact.avatar" md-list-icon><img src={{contact.avatar}} alt="avatar"></md-icon>
+    <a mdLine [routerLink]="['/contacts',contact.id]">{{contact.first_name}} {{contact.last_name}}</a>
+  </md-list-item>
+</md-nav-list>
